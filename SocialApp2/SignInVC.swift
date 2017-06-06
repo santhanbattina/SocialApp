@@ -13,6 +13,9 @@ import Firebase
 
 class SignInVC: UIViewController {
 
+    @IBOutlet weak var emailTextfield: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,25 +48,59 @@ class SignInVC: UIViewController {
     
     func fireauth(_ credential : FIRAuthCredential){
         
-        FIRAuth.auth()?.signIn(with:credential){(result,error) in
+        FIRAuth.auth()?.signIn(with:credential, completion: { (user,error) in
             
             if error != nil {
                 
-                print("unable to authenticate with facebook - \(error)")
+                print("san : Unable to authenticate with facebook.")
+                
             } else {
                 
                 print("successfully authenticate with facebook")
             }
-            
-            
-        }
-        
+        })
         
     }
+    
+    @IBAction func emailSigninBtn(_ sender: Any) {
+        
+        if let emailAddress = emailTextfield.text, let password = passwordTextfield.text {
+            
+            FIRAuth.auth()?.signIn(withEmail: emailAddress, password: password) { (user,error) in
+                
+                if error == nil {
+                    
+                    print("User email authenticate with firebase")
+                } else {
+                    
+                    FIRAuth.auth()?.createUser(withEmail: emailAddress, password: password, completion: { (user,error) in
+                        
+                        if error != nil {
+                            
+                            print("Unable to authenticate with firebase using email")
+                            
+                        } else {
+                            
+                            print("Successfully authenticate with firebase")
+                        }
+                    
+                    
+                    
+                    })
+                
+                
+                }
+                
+                
+            }
+        }
+    }
+    
 
     
     
     
+
     
 
 }
