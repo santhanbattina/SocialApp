@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
 
@@ -19,6 +20,15 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            
+            performSegue(withIdentifier: "gotofeed", sender: nil)
+            
+            
+        }
     }
 
     @IBAction func facebookLoginBtn(_ sender: Any) {
@@ -57,6 +67,11 @@ class SignInVC: UIViewController {
             } else {
                 
                 print("successfully authenticate with facebook")
+                
+                if let user = user {
+                    self.completeSignin(id: user.uid)
+                    
+                }
             }
         })
         
@@ -71,6 +86,12 @@ class SignInVC: UIViewController {
                 if error == nil {
                     
                     print("User email authenticate with firebase")
+                    
+                    if let user = user {
+                        self.completeSignin(id: user.uid)
+                        
+                    }
+
                 } else {
                     
                     FIRAuth.auth()?.createUser(withEmail: emailAddress, password: password, completion: { (user,error) in
@@ -82,6 +103,12 @@ class SignInVC: UIViewController {
                         } else {
                             
                             print("Successfully authenticate with firebase")
+                            
+                            if let user = user {
+                                self.completeSignin(id: user.uid)
+                                
+                            }
+
                         }
                     
                     
@@ -94,6 +121,14 @@ class SignInVC: UIViewController {
                 
             }
         }
+    }
+    
+    
+    func completeSignin(id : String) {
+        KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        performSegue(withIdentifier: "gotofeed", sender: nil)
+        
+        
     }
     
 
