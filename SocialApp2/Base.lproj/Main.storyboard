@@ -25,7 +25,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xz-8Y-xva" customClass="fancyView" customModule="SocialApp2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="social app img 2" translatesAutoresizingMaskIntoConstraints="NO" id="Wcs-tn-pZh">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="social app img 2" translatesAutoresizingMaskIntoConstraints="NO" id="Wcs-tn-pZh" customClass="circleview" customModule="SocialApp2" customModuleProvider="target">
                                         <rect key="frame" x="137" y="20" width="100" height="100"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,7 +111,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rrh-sU-IHL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="4NT-kl-Y7F"/>
                             <constraint firstAttribute="trailing" secondItem="XUW-Iq-Wgi" secondAttribute="trailing" id="4xW-Ba-Oj1"/>
@@ -155,29 +155,38 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjb-7p-L6K" customClass="fancyView" customModule="SocialApp2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-c3-MRh">
-                                        <rect key="frame" x="8" y="20" width="45" height="45"/>
-                                        <color key="backgroundColor" red="0.29779833560000002" green="0.40598541500000002" blue="0.67797905209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="TM9-39-05P"/>
-                                            <constraint firstAttribute="height" constant="45" id="XOL-5x-SI9"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FEED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsX-Bl-nbW">
-                                        <rect key="frame" x="158" y="27.5" width="59.5" height="30"/>
+                                        <rect key="frame" x="158" y="28" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="59.5" id="1v7-MW-ZQd"/>
+                                            <constraint firstAttribute="height" constant="30" id="IMj-wd-gA2"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-En-HzU" customClass="roundBtn" customModule="SocialApp2" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="28" width="39" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7gn-a1-71w"/>
+                                            <constraint firstAttribute="width" constant="39" id="A07-5d-j67"/>
+                                        </constraints>
+                                        <state key="normal" image="sign-out"/>
+                                        <connections>
+                                            <action selector="SignoutBtn:" destination="Hsy-w2-QB9" eventType="touchUpInside" id="JJF-EN-vt5"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="gotoSignin" id="qzh-Zq-u0K"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.29779833560000002" green="0.40598541500000002" blue="0.67797905209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PBd-En-HzU" secondAttribute="bottom" constant="7" id="1Jl-dG-Sqt"/>
                                     <constraint firstAttribute="height" constant="65" id="9j1-Dt-Sqs"/>
-                                    <constraint firstItem="vCc-c3-MRh" firstAttribute="top" secondItem="rjb-7p-L6K" secondAttribute="top" constant="20" id="Q01-5C-k2a"/>
-                                    <constraint firstItem="vCc-c3-MRh" firstAttribute="leading" secondItem="rjb-7p-L6K" secondAttribute="leading" constant="8" id="XSz-Lj-uTo"/>
-                                    <constraint firstItem="tsX-Bl-nbW" firstAttribute="centerX" secondItem="rjb-7p-L6K" secondAttribute="centerX" id="l4d-V3-fAM"/>
-                                    <constraint firstItem="tsX-Bl-nbW" firstAttribute="centerY" secondItem="vCc-c3-MRh" secondAttribute="centerY" id="rGu-Sp-Dl4"/>
+                                    <constraint firstAttribute="bottom" secondItem="tsX-Bl-nbW" secondAttribute="bottom" constant="7.5" id="JhB-95-YqB"/>
+                                    <constraint firstItem="PBd-En-HzU" firstAttribute="leading" secondItem="rjb-7p-L6K" secondAttribute="leading" constant="8" id="Jhg-nf-7KW"/>
+                                    <constraint firstItem="tsX-Bl-nbW" firstAttribute="centerX" secondItem="rjb-7p-L6K" secondAttribute="centerX" id="Nwl-zD-CXO"/>
+                                    <constraint firstItem="tsX-Bl-nbW" firstAttribute="centerY" secondItem="PBd-En-HzU" secondAttribute="centerY" id="a2C-Vk-zOl"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LrT-6w-nex" customClass="fancyView" customModule="SocialApp2" customModuleProvider="target">
@@ -226,11 +235,11 @@
                                     <constraint firstItem="Al8-F0-I8w" firstAttribute="top" secondItem="LrT-6w-nex" secondAttribute="top" constant="8" id="upS-F1-tHX"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="361" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="94f-cu-sFe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="361" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="94f-cu-sFe">
                                 <rect key="frame" x="8" y="144" width="359" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="361" id="CmY-2g-N9f">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feedCell" rowHeight="361" id="CmY-2g-N9f" customClass="FeedCell" customModule="SocialApp2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="361"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CmY-2g-N9f" id="AqG-7v-YCg">
@@ -238,16 +247,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5a-FI-Mlf" customClass="fancyView" customModule="SocialApp2" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="360.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="361"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="zCS-cj-1Qb">
-                                                            <rect key="frame" x="8" y="15.5" width="60" height="60"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="zCS-cj-1Qb" customClass="circleview" customModule="SocialApp2" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="16" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="0Vj-jm-0Ry"/>
                                                                 <constraint firstAttribute="height" constant="60" id="MCz-ez-d1v"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santhan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i85-9b-vPp">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santhan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i85-9b-vPp">
                                                             <rect key="frame" x="82" y="18" width="197" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="smI-Qr-JWG"/>
@@ -258,40 +267,40 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="kgn-lG-R5T">
-                                                            <rect key="frame" x="8" y="83.5" width="343" height="150"/>
+                                                            <rect key="frame" x="8" y="84" width="343" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="150" id="iMK-ig-JaK"/>
                                                             </constraints>
                                                         </imageView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SD7-zh-m2t">
-                                                            <rect key="frame" x="8" y="241.5" width="343" height="55"/>
+                                                            <rect key="frame" x="8" y="242" width="343" height="55"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="s2C-Ld-bgD"/>
                                                             </constraints>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="XnK-1i-fOL" customClass="circleview" customModule="SocialApp2" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="304.5" width="45" height="45"/>
-                                                            <color key="backgroundColor" red="0.29779833560000002" green="0.40598541500000002" blue="0.67797905209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="8" y="305" width="45" height="45"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="45" id="S60-90-Rju"/>
                                                                 <constraint firstAttribute="width" constant="45" id="hwK-vZ-KwU"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sbi-wG-4Cn">
-                                                            <rect key="frame" x="73" y="319" width="93" height="21.5"/>
+                                                            <rect key="frame" x="73" y="319" width="93" height="22"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivs-ZP-qVi">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="21.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="22"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfC-zg-6gW">
-                                                                    <rect key="frame" x="51" y="0.0" width="42" height="21.5"/>
+                                                                    <rect key="frame" x="51" y="0.0" width="42" height="22"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -328,6 +337,13 @@
                                                 <constraint firstItem="L5a-FI-Mlf" firstAttribute="leading" secondItem="AqG-7v-YCg" secondAttribute="leading" id="mdJ-2o-PCI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caption" destination="SD7-zh-m2t" id="V1z-x1-aj4"/>
+                                            <outlet property="likes" destination="ivs-ZP-qVi" id="sSU-Nz-Fjc"/>
+                                            <outlet property="postImg" destination="kgn-lG-R5T" id="JEg-lW-VWZ"/>
+                                            <outlet property="profilePic" destination="zCS-cj-1Qb" id="r1B-f1-QDF"/>
+                                            <outlet property="usernameLbl" destination="i85-9b-vPp" id="S9f-Iy-r9P"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -347,6 +363,9 @@
                             <constraint firstItem="mGF-wc-aEE" firstAttribute="top" secondItem="94f-cu-sFe" secondAttribute="bottom" constant="8" id="oQb-0v-gWn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="94f-cu-sFe" id="QTN-TG-Ghd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bly-rj-d3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

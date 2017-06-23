@@ -69,7 +69,8 @@ class SignInVC: UIViewController {
                 print("successfully authenticate with facebook")
                 
                 if let user = user {
-                    self.completeSignin(id: user.uid)
+                    let userData = ["provider": credential.provider]
+                    self.completeSignin(id: user.uid, userData: userData)
                     
                 }
             }
@@ -88,7 +89,8 @@ class SignInVC: UIViewController {
                     print("User email authenticate with firebase")
                     
                     if let user = user {
-                        self.completeSignin(id: user.uid)
+                        let userData = ["provider": user.providerID]
+                        self.completeSignin(id: user.uid, userData: userData)
                         
                     }
 
@@ -105,7 +107,9 @@ class SignInVC: UIViewController {
                             print("Successfully authenticate with firebase")
                             
                             if let user = user {
-                                self.completeSignin(id: user.uid)
+                                
+                                let userData = ["provider" : user.providerID]
+                                self.completeSignin(id: user.uid, userData: userData)
                                 
                             }
 
@@ -124,7 +128,8 @@ class SignInVC: UIViewController {
     }
     
     
-    func completeSignin(id : String) {
+    func completeSignin(id : String , userData : [String : String]) {
+        Dataservice.ds.createFirebaseDBUser(uid: id, userData: userData)
         KeychainWrapper.standard.set(id, forKey: KEY_UID)
         performSegue(withIdentifier: "gotofeed", sender: nil)
         
