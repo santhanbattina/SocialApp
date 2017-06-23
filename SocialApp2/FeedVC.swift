@@ -10,17 +10,23 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class FeedVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate , UIImagePickerControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addImage: circleview!
     
     var posts = [Post]()
+    var imagePicker : UIImagePickerController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
         
         Dataservice.ds.REF_POSTS.observe(.value, with:{ (snapshot) in
         
@@ -64,6 +70,31 @@ class FeedVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
         
      
     }
+    
+    
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
+            addImage.image = image
+        } else {
+            print("Image isn't selected")
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    @IBAction func ImgAddTapped(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+        
+    
+    }
+    
+   
     
     
     @IBAction func SignoutBtn(_ sender: Any) {

@@ -195,13 +195,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Al8-F0-I8w">
                                         <rect key="frame" x="8" y="8" width="311" height="45"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="2yQ-co-Rhw" customClass="circleview" customModule="SocialApp2" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="2yQ-co-Rhw" customClass="circleview" customModule="SocialApp2" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                 <color key="backgroundColor" red="0.29779833560000002" green="0.40598541500000002" blue="0.67797905209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="2fW-dP-YTb"/>
                                                     <constraint firstAttribute="width" constant="45" id="DJQ-Nt-sw2"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Y4l-5I-51N" appends="YES" id="ZfT-lj-caQ"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Add caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tc0-eS-ryD">
                                                 <rect key="frame" x="55" y="0.0" width="201" height="45"/>
@@ -364,10 +368,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addImage" destination="2yQ-co-Rhw" id="I9h-Bf-KdS"/>
                         <outlet property="tableView" destination="94f-cu-sFe" id="QTN-TG-Ghd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bly-rj-d3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Y4l-5I-51N">
+                    <connections>
+                        <action selector="ImgAddTapped:" destination="Hsy-w2-QB9" id="Ldj-D3-K9y"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="832.79999999999995" y="36.431784107946029"/>
         </scene>
