@@ -344,7 +344,7 @@
                                         <connections>
                                             <outlet property="caption" destination="SD7-zh-m2t" id="V1z-x1-aj4"/>
                                             <outlet property="likes" destination="ivs-ZP-qVi" id="sSU-Nz-Fjc"/>
-                                            <outlet property="postImg" destination="kgn-lG-R5T" id="JEg-lW-VWZ"/>
+                                            <outlet property="postImg" destination="kgn-lG-R5T" id="KPw-KK-p1v"/>
                                             <outlet property="profilePic" destination="zCS-cj-1Qb" id="r1B-f1-QDF"/>
                                             <outlet property="usernameLbl" destination="i85-9b-vPp" id="S9f-Iy-r9P"/>
                                         </connections>

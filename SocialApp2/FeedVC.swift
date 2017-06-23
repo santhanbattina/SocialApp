@@ -17,6 +17,8 @@ class FeedVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UINav
     
     var posts = [Post]()
     var imagePicker : UIImagePickerController!
+    static var ImgCache  = NSCache<NSString, UIImage>()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +61,25 @@ class FeedVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UINav
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
-       
+        
+        print(post.imgurl)
+
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell") as? FeedCell {
             cell.confiureCell(post: post)
             return cell
+            
+//            if let img = FeedVC.ImgCache.object(forKey: post.imgurl as NSString){
+////                cell.confiureCell(post: post, img: img)
+//                return cell
+//                
+//            } else {
+//                cell.confiureCell(post: post, img: nil)
+//                return cell
+//           
+//        }
+            
+           
         } else {
             return FeedCell()
             
@@ -90,8 +107,7 @@ class FeedVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UINav
     
     @IBAction func ImgAddTapped(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
-        
-    
+   
     }
     
    
